@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Calculadora</title>
+  <script>
+    function somar() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 + numero2
+      document.getElementById("resultado").innerHTML = resultado;
+    };
+    function subtracao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 - numero2
+      document.getElementById("resultado").innerHTML = resultado;
+    };
+    function multiplicacao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 * numero2
+      document.getElementById("resultado").innerHTML = resultado;
+    };
+    function divisao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = Number((numero1 / numero2).toFixed(2));
+      document.getElementById("resultado").innerHTML = resultado;
+    };
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+  <p>
+    <div>Insira um número:</div> 
+    <input id="numero_1" type="number">
+    <div>Insira um número:</div> 
+    <input id="numero_2" type="number">
+     <div>Escolha a operação matemática:</div> 
+    <button id="botaoSoma" onclick="somar()">Somar</button>
+    <button id="botaoSoma" onclick="subtracao()">Subtrair</button>
+    <button id="botaoSoma" onclick="multiplicacao()">Multiplicar</button>
+    <button id="botaoSoma" onclick="divisao()">Dividir</button>
+    <div>O resultado é:</div> 
+    <div id="resultado"></div>
+  </p>
+</body>
+
+</html>
