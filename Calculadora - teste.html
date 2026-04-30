@@ -1,0 +1,109 @@
+<html>
+
+<head>
+  <title>Calculadora</title>
+  <script>
+    function somar() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 + numero2
+      document.getElementById("resultadoSoma").innerHTML = resultado;
+    };
+    function subtracao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 - numero2
+      document.getElementById("resultadoSub").innerHTML = resultado;
+    };
+    function multiplicacao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 * numero2
+      document.getElementById("resultadoMult").innerHTML = resultado;
+    };
+    function divisao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = Number((numero1 / numero2).toFixed(2));
+      document.getElementById("resultadoDiv").innerHTML = resultado;
+    };
+    
+
+    function limpar() {
+      document.getElementById("numero_1").value = ""
+      document.getElementById("numero_2").value = ""
+
+      document.getElementById("resultadoSoma").innerHTML = ""
+      document.getElementById("resultadoSub").innerHTML = ""
+      document.getElementById("resultadoMult").innerHTML = ""
+      document.getElementById("resultadoDiv").innerHTML = ""
+
+      document.getElementById("resultadoTesteSoma").innerHTML = ""
+      document.getElementById("resultadoTesteSub").innerHTML = ""
+      document.getElementById("resultadoTesteMult").innerHTML = ""
+      document.getElementById("resultadoTesteDiv").innerHTML = ""
+    };
+    
+    
+    function teste() {
+      document.getElementById("numero_1").value = 3
+      document.getElementById("numero_2").value = 4
+      const resultEsperadoSoma = 7
+      const testSoma = somar()
+      if (document.getElementById("resultadoSoma").innerHTML == resultEsperadoSoma) {
+        document.getElementById("resultadoTesteSoma").innerHTML = `restutado correto`
+      } else {
+        document.getElementById("resultadoTesteSoma").innerHTML = `restutado esperado é ${resultEsperadoSoma}, logo sua calculadora contém um erro`
+      }
+      const resultEsperadoSub = -1
+      const testSub = subtracao()
+      if (document.getElementById("resultadoSub").innerHTML == resultEsperadoSub) {
+        document.getElementById("resultadoTesteSub").innerHTML = `restutado correto`
+      } else {
+        document.getElementById("resultadoTesteSub").innerHTML = `restutado esperado é ${resultEsperadoSub}, logo sua calculadora contém um erro`
+      }
+      const resultEsperadoMult = 12
+      const testMult = multiplicacao()
+      if (document.getElementById("resultadoMult").innerHTML == resultEsperadoMult) {
+        document.getElementById("resultadoTesteMult").innerHTML = `restutado correto`
+      } else {
+        document.getElementById("resultadoTesteMult").innerHTML = `restutado esperado é ${resultEsperadoMult}, logo sua calculadora contém um erro`
+      }
+      const resultEsperadoDiv = 0.75
+      const testDiv = divisao()
+      if (document.getElementById("resultadoDiv").innerHTML == resultEsperadoDiv) {
+        document.getElementById("resultadoTesteDiv").innerHTML = `restutado correto`
+      } else {
+        document.getElementById("resultadoTesteDiv").innerHTML = `restutado esperado é ${resultEsperadoDiv}, logo sua calculadora contém um erro`
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+  <p>
+    <div>Insira um número:</div> 
+    <input id="numero_1" type="number">
+    <div>Insira um número:</div> 
+    <input id="numero_2" type="number">
+     <div>Escolha a operação matemática:</div> 
+    <button id="botaoSoma" onclick="somar()">Somar</button><div id="resultadoSoma"></div>
+    <button id="botaoSub" onclick="subtracao()">Subtrair</button><div id="resultadoSub"></div>
+    <button id="botaoMult" onclick="multiplicacao()">Multiplicar</button><div id="resultadoMult"></div>
+    <button id="botaoDiv" onclick="divisao()">Dividir</button><div id="resultadoDiv"></div>
+    <button id="botaoTeste" onclick="teste()">Testar</button>
+    <div>Resultado do teste:</div>
+    <div>Soma</div>
+    <div id="resultadoTesteSoma"></div>
+    <div>Subtração</div>
+    <div id="resultadoTesteSub"></div>
+    <div>Multiplicação</div>
+    <div id="resultadoTesteMult"></div>
+    <div>Divisão</div>
+    <div id="resultadoTesteDiv"></div>
+    <button id="botaoLimpar" onclick="limpar()">Limpar teste</button>
+  </p>
+</body>
+
+</html>
