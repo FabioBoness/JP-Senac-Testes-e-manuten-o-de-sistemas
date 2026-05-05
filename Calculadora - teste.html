@@ -45,7 +45,7 @@
     };
     
     
-    function teste() {
+    function testeUni() {
       document.getElementById("numero_1").value = 3
       document.getElementById("numero_2").value = 4
       const resultEsperadoSoma = 7
@@ -77,11 +77,68 @@
         document.getElementById("resultadoTesteDiv").innerHTML = `restutado esperado é ${resultEsperadoDiv}, logo sua calculadora contém um erro`
       }
     };
+
+    // =============================-------------------=============================
+
+    // function testeEstrut() {
+    //   const restSoma = document.getElementById("resultadoTesteSoma").innerHTML;
+    //   const restSub = document.getElementById("resultadoTesteSub").innerHTML;
+    //   const restMult = document.getElementById("resultadoTesteMult").innerHTML;
+    //   const restDiv = document.getElementById("resultadoTesteDiv").innerHTML;
+    //   if (!restSoma || !restSub || !restMult || !restDiv){
+    //     document.getElementById("resultadoGeral").innerHTML = `Restutado esperado não foi alcançado, pois algum dos campos não estão respondendo`
+    //   } else {
+    //      document.getElementById("resultadoGeral").innerHTML = `Restutado esperado foi alcançado, pois todos os campos estão respondendo`
+    //   }
+    // }
+
+    // =============================-------------------=============================
+
+    // function testeEstrut() {
+    //   const restTest = ["resultadoTesteSoma", "resultadoTesteSub", "resultadoTesteMult", "resultadoTesteDiv"];
+    //   let todosPreenchidos = true;
+
+    //   restTest.forEach(resultado => {
+    //     if (!document.getElementById(resultado).innerHTML) {
+    //       todosPreenchidos = false;
+    //     }
+    //   });
+
+    //   let resultado
+    //     if (todosPreenchidos){
+    //     resultado = "Resultado esperado foi alcançado, pois todos os campos estão respondendo";
+    //     } else {
+    //     resultado =  "Resultado esperado não foi alcançado, pois algum dos campos não está respondendo";
+    //     }
+    //   document.getElementById("resultadoGeral").innerHTML = resultado;
+    // }
+
+    // =============================-------------------=============================
+
+    function testeEstrut() {
+      const restTest = ["resultadoTesteSoma", "resultadoTesteSub", "resultadoTesteMult", "resultadoTesteDiv"];
+      let todosPreenchidos = true;
+
+      for (const testes of restTest) {
+        if (!document.getElementById(testes).innerHTML) {
+          todosPreenchidos = false;
+          break;
+        }
+      }
+
+      let resultado;
+      if (todosPreenchidos) {
+        resultado = "Resultado esperado foi alcançado, pois todos os campos estão respondendo";
+      } else {
+        resultado = "Resultado esperado não foi alcançado, pois algum dos campos não está respondendo";
+      }
+      document.getElementById("resultadoGeral").innerHTML = resultado;
+    }
   </script>
 </head>
 
 <body>
-  <h1></h1>
+  <h1>Calculadora</h1>
   <p>
     <div>Insira um número:</div> 
     <input id="numero_1" type="number">
@@ -92,7 +149,10 @@
     <button id="botaoSub" onclick="subtracao()">Subtrair</button><div id="resultadoSub"></div>
     <button id="botaoMult" onclick="multiplicacao()">Multiplicar</button><div id="resultadoMult"></div>
     <button id="botaoDiv" onclick="divisao()">Dividir</button><div id="resultadoDiv"></div>
-    <button id="botaoTeste" onclick="teste()">Testar</button>
+  </p>
+  <p>
+    <div>Teste unitário</div> 
+    <button id="botaoTeste" onclick="testeUni()">Testar</button>
     <div>Resultado do teste:</div>
     <div>Soma</div>
     <div id="resultadoTesteSoma"></div>
@@ -103,6 +163,12 @@
     <div>Divisão</div>
     <div id="resultadoTesteDiv"></div>
     <button id="botaoLimpar" onclick="limpar()">Limpar teste</button>
+  </p>
+  <p>
+    <div>Teste estrutural</div>
+    <button id="botaoTeste" onclick="testeEstrut()">Testar estrutura</button>
+    <div>Resultado do teste</div>
+    <div>Os botões abaixo existem: <div id="resultadoGeral"></div>
   </p>
 </body>
 
