@@ -42,6 +42,8 @@
       document.getElementById("resultadoTesteSub").innerHTML = ""
       document.getElementById("resultadoTesteMult").innerHTML = ""
       document.getElementById("resultadoTesteDiv").innerHTML = ""
+
+      document.getElementById("resultadoGeral").innerHTML = ""
     };
     
     
@@ -162,13 +164,15 @@
     <div id="resultadoTesteMult"></div>
     <div>Divisão</div>
     <div id="resultadoTesteDiv"></div>
-    <button id="botaoLimpar" onclick="limpar()">Limpar teste</button>
-  </p>
+    </p>
   <p>
     <div>Teste estrutural</div>
     <button id="botaoTeste" onclick="testeEstrut()">Testar estrutura</button>
     <div>Resultado do teste</div>
     <div>Os botões abaixo existem: <div id="resultadoGeral"></div>
+  </p>
+  <p>
+    <button id="botaoLimpar" onclick="limpar()">Limpar teste</button>
   </p>
 </body>
 
