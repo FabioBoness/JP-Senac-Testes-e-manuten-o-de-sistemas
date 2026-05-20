@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <title>Calculadora de área quadrada</title>
+  <script>
+    function multiplicacao() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = numero1 * numero2
+      document.getElementById("resultadoMult").innerHTML = resultado;
+    };
+
+    
+
+    function limpar() {
+      document.getElementById("numero_1").value = ""
+      document.getElementById("numero_2").value = ""
+
+      document.getElementById("resultadoMult").innerHTML = ""
+
+      document.getElementById("resultadoTesteMult").innerHTML = ""
+
+      document.getElementById("resultadoGeral").innerHTML = ""
+    };
+    
+    
+    function testeUni() {
+      document.getElementById("numero_1").value = 3
+      document.getElementById("numero_2").value = 4
+      const resultEsperadoMult = 12
+      const testMult = multiplicacao()
+      if (document.getElementById("resultadoMult").innerHTML == resultEsperadoMult) {
+        document.getElementById("resultadoTesteMult").innerHTML = `Restutado esperado atingido`
+      } else {
+        document.getElementById("resultadoTesteMult").innerHTML = `Restutado esperado é ${resultEsperadoMult}, logo a calculadora contém erro`
+      }
+    };
+
+    function testeEstrut() {
+      const restMult = document.getElementById("resultadoTesteMult").innerHTML;
+      if (!restMult){
+        document.getElementById("resultadoGeral").innerHTML = `Restutado esperado não foi alcançado, pois algum dos campos não estão respondendo (há campos em branco)`
+      } else {
+         document.getElementById("resultadoGeral").innerHTML = `Restutado esperado foi alcançado, pois todos os campos estão respondendo (todos os campos retornam valores)`
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Calculadora de área quadrada</h1>
+  <p>
+    <div>Insira a medida da base:</div> 
+    <input id="numero_1" type="number">
+    <div>Insira a medida da altura:</div> 
+    <input id="numero_2" type="number">
+     <div>Clique no botão abaixo para obter o resultado do cálculo de área:</div> 
+    <button id="botaoMult" onclick="multiplicacao()">Calcular</button><div id="resultadoMult"></div>
+  </p>
+  <p>
+    <div>Teste unitário</div> 
+    <button id="botaoTeste" onclick="testeUni()">Realizar teste unitário</button>
+    <div>Resultado do teste unitário: <div id="resultadoTesteMult"></div>
+    </p>
+  <p>
+    <div>Teste estrutural</div>
+    <button id="botaoTeste" onclick="testeEstrut()">Realizar teste estrutural</button>
+    <div>Resultado do teste estrutural: <div id="resultadoGeral"></div>
+  </p>
+  <p>
+    <button id="botaoLimpar" onclick="limpar()">Limpar teste e calculadora</button>
+  </p>
+</body>
+
+</html>
