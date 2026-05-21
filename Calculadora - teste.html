@@ -6,19 +6,19 @@
     function somar() {
       const numero1 = Number(document.getElementById("numero_1").value);
       const numero2 = Number(document.getElementById("numero_2").value); 
-      const resultado = numero1 + numero2
+      const resultado = ((numero1 + numero2).toFixed(2))
       document.getElementById("resultadoSoma").innerHTML = resultado;
     };
     function subtracao() {
       const numero1 = Number(document.getElementById("numero_1").value);
       const numero2 = Number(document.getElementById("numero_2").value); 
-      const resultado = numero1 - numero2
+      const resultado = ((numero1 - numero2).toFixed(2))
       document.getElementById("resultadoSub").innerHTML = resultado;
     };
     function multiplicacao() {
       const numero1 = Number(document.getElementById("numero_1").value);
       const numero2 = Number(document.getElementById("numero_2").value); 
-      const resultado = numero1 * numero2
+      const resultado = ((numero1 * numero2).toFixed(2))
       document.getElementById("resultadoMult").innerHTML = resultado;
     };
     function divisao() {
@@ -27,8 +27,13 @@
       const resultado = Number((numero1 / numero2).toFixed(2));
       document.getElementById("resultadoDiv").innerHTML = resultado;
     };
+    function percentual() {
+      const numero1 = Number(document.getElementById("numero_1").value);
+      const numero2 = Number(document.getElementById("numero_2").value); 
+      const resultado = Number(((numero1 / numero2) * 100 ).toFixed(2));
+      document.getElementById("resultadoPerc").innerHTML = resultado;
+    }
     
-
     function limpar() {
       document.getElementById("numero_1").value = ""
       document.getElementById("numero_2").value = ""
@@ -37,34 +42,36 @@
       document.getElementById("resultadoSub").innerHTML = ""
       document.getElementById("resultadoMult").innerHTML = ""
       document.getElementById("resultadoDiv").innerHTML = ""
+      document.getElementById("resultadoPerc").innerHTML = ""
 
       document.getElementById("resultadoTesteSoma").innerHTML = ""
       document.getElementById("resultadoTesteSub").innerHTML = ""
       document.getElementById("resultadoTesteMult").innerHTML = ""
       document.getElementById("resultadoTesteDiv").innerHTML = ""
+      document.getElementById("resultadoTestePerc").innerHTML = ""
 
       document.getElementById("resultadoGeral").innerHTML = ""
     };
     
     
     function testeUni() {
-      document.getElementById("numero_1").value = 3
-      document.getElementById("numero_2").value = 4
-      const resultEsperadoSoma = 7
+      document.getElementById("numero_1").value = 3.00
+      document.getElementById("numero_2").value = 4.00
+      const resultEsperadoSoma = 7.00
       const testSoma = somar()
       if (document.getElementById("resultadoSoma").innerHTML == resultEsperadoSoma) {
         document.getElementById("resultadoTesteSoma").innerHTML = `restutado correto`
       } else {
         document.getElementById("resultadoTesteSoma").innerHTML = `restutado esperado é ${resultEsperadoSoma}, logo sua calculadora contém um erro`
       }
-      const resultEsperadoSub = -1
+      const resultEsperadoSub = -1.00
       const testSub = subtracao()
       if (document.getElementById("resultadoSub").innerHTML == resultEsperadoSub) {
         document.getElementById("resultadoTesteSub").innerHTML = `restutado correto`
       } else {
         document.getElementById("resultadoTesteSub").innerHTML = `restutado esperado é ${resultEsperadoSub}, logo sua calculadora contém um erro`
       }
-      const resultEsperadoMult = 12
+      const resultEsperadoMult = 12.00
       const testMult = multiplicacao()
       if (document.getElementById("resultadoMult").innerHTML == resultEsperadoMult) {
         document.getElementById("resultadoTesteMult").innerHTML = `restutado correto`
@@ -78,6 +85,13 @@
       } else {
         document.getElementById("resultadoTesteDiv").innerHTML = `restutado esperado é ${resultEsperadoDiv}, logo sua calculadora contém um erro`
       }
+      const resultEsperadoPerc = 75.00
+      const testPerc = percentual()
+      if (document.getElementById("resultadoPerc").innerHTML == resultEsperadoPerc) {
+        document.getElementById("resultadoTestePerc").innerHTML = `restutado correto`
+      } else {
+        document.getElementById("resultadoTestePerc").innerHTML = `restutado esperado é ${resultEsperadoPerc}%, logo sua calculadora contém um erro`
+      }
     };
 
     // =============================-------------------=============================
@@ -87,7 +101,8 @@
     //   const restSub = document.getElementById("resultadoTesteSub").innerHTML;
     //   const restMult = document.getElementById("resultadoTesteMult").innerHTML;
     //   const restDiv = document.getElementById("resultadoTesteDiv").innerHTML;
-    //   if (!restSoma || !restSub || !restMult || !restDiv){
+    //   const restPerc = document.getElementById("resultadoTestePerc").innerHTML;
+    //   if (!restSoma || !restSub || !restMult || !restDiv || !restPerc){
     //     document.getElementById("resultadoGeral").innerHTML = `Restutado esperado não foi alcançado, pois algum dos campos não estão respondendo`
     //   } else {
     //      document.getElementById("resultadoGeral").innerHTML = `Restutado esperado foi alcançado, pois todos os campos estão respondendo`
@@ -97,7 +112,7 @@
     // =============================-------------------=============================
 
     // function testeEstrut() {
-    //   const restTest = ["resultadoTesteSoma", "resultadoTesteSub", "resultadoTesteMult", "resultadoTesteDiv"];
+    //   const restTest = ["resultadoTesteSoma", "resultadoTesteSub", "resultadoTesteMult", "resultadoTesteDiv", "resultadoTestePerc"];
     //   let todosPreenchidos = true;
 
     //   restTest.forEach(resultado => {
@@ -151,6 +166,7 @@
     <button id="botaoSub" onclick="subtracao()">Subtrair</button><div id="resultadoSub"></div>
     <button id="botaoMult" onclick="multiplicacao()">Multiplicar</button><div id="resultadoMult"></div>
     <button id="botaoDiv" onclick="divisao()">Dividir</button><div id="resultadoDiv"></div>
+    <button id="botaoSoma" onclick="percentual()">Percentual</button><div id="resultadoPerc"></div>
   </p>
   <p>
     <div>Teste unitário</div> 
@@ -164,6 +180,8 @@
     <div id="resultadoTesteMult"></div>
     <div>Divisão</div>
     <div id="resultadoTesteDiv"></div>
+    <div>Percentual</div>
+    <div id="resultadoTestePerc"></div>
     </p>
   <p>
     <div>Teste estrutural</div>
